@@ -23,7 +23,6 @@ def create_smite_api_session
   JSON.parse(smite_session)['session_id']
 end
 
-# if 
 def get_smite_gods
   timestamp = Time.now.getutc.strftime("%Y%m%d%H%M%S")
   request_string = "#{ENV['SMITE_API_DEV_ID']}" + 'getgods' + "#{ENV['SMITE_API_AUTHKEY']}" + timestamp
