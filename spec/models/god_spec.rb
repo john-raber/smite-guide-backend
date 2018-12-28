@@ -229,6 +229,14 @@ describe God do
     end
   end
 
+  describe '#pantheon' do
+    xit 'is required' do
+      god.pantheon = nil
+      god.valid?
+      expect(god.errors[:pantheon].size).to eq(1)
+    end
+  end
+
   describe '#physical_power' do
     xit 'is required' do
       god.physical_power = nil

@@ -1,7 +1,6 @@
 class CreateGods < ActiveRecord::Migration[5.2]
   def change
     create_table :gods do |t|
-      t.belongs_to :pantheon, foreign_key: true
       t.decimal :attack_speed
       t.decimal :attack_speed_per_level
       t.string :cons
@@ -20,6 +19,7 @@ class CreateGods < ActiveRecord::Migration[5.2]
       t.integer :mana_per_level
       t.string :name
       t.string :free_rotation
+      t.string :pantheon
       t.integer :physical_power
       t.decimal :physical_power_per_level
       t.integer :physical_protection
