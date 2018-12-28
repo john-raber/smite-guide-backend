@@ -1,3 +1,5 @@
+require 'pry'
+
 class God < ApplicationRecord
   has_many :abilities
 
@@ -32,4 +34,28 @@ class God < ApplicationRecord
     :god_icon_url,
     :latest_god
   ]
+
+  def ability_1
+    abilities.find { |a| a.tier == 'ability_1' }
+  end
+
+  def ability_2
+    abilities.find { |a| a.tier == 'ability_2' }
+  end
+
+  def ability_3
+    abilities.find { |a| a.tier == 'ability_3' }
+  end
+
+  def ability_4
+    abilities.find { |a| a.tier == 'ability_4' }
+  end
+
+  def ability_5
+    abilities.find { |a| a.tier == 'ability_5' }
+  end
+
+  def basic_attack
+    abilities.find { |a| a.tier == 'basic_attack' }
+  end
 end

@@ -2,6 +2,12 @@ require 'rails_helper'
 
 describe God do
   let(:god) { FactoryBot.create(:god) }
+  let(:ability1) { FactoryBot.create(:ability, god: god, tier: 'ability_1') }
+  let(:ability2) { FactoryBot.create(:ability, god: god, tier: 'ability_2') }
+  let(:ability3) { FactoryBot.create(:ability, god: god, tier: 'ability_3') }
+  let(:ability4) { FactoryBot.create(:ability, god: god, tier: 'ability_4') }
+  let(:ability5) { FactoryBot.create(:ability, god: god, tier: 'ability_5') }
+  let(:basic) { FactoryBot.create(:ability, god: god, tier: 'basic_attack') }
 
   it 'is an instance of God' do
     expect(subject).to be_an God
@@ -15,83 +21,47 @@ describe God do
     expect(god).to be_valid
   end
 
-  # describe '#ability_1' do
-  #   it 'is required' do
-  #     god.ability_1 = nil
-  #     god.valid?
-  #     expect(god.errors[:ability_1].size).to eq(1)
-  #   end
-  #
-  #   it 'is unique' do
-  #     another_god = FactoryBot.build(:god, ability_1: god.ability_1)
-  #     another_god.valid?
-  #     expect(another_god.errors[:ability_1].size).to eq(1)
-  #   end
-  # end
-  #
-  # describe '#ability_2' do
-  #   it 'is required' do
-  #     god.ability_2 = nil
-  #     god.valid?
-  #     expect(god.errors[:ability_2].size).to eq(1)
-  #   end
-  #
-  #   it 'is unique' do
-  #     another_god = FactoryBot.build(:god, ability_2: god.ability_1)
-  #     another_god.valid?
-  #     expect(another_god.errors[:ability_2].size).to eq(1)
-  #   end
-  # end
-  #
-  # describe '#ability_3' do
-  #   it 'is required' do
-  #     god.ability_3 = nil
-  #     god.valid?
-  #     expect(god.errors[:ability_3].size).to eq(1)
-  #   end
-  #
-  #   it 'is unique' do
-  #     another_god = FactoryBot.build(:god, ability_3: god.ability_1)
-  #     another_god.valid?
-  #     expect(another_god.errors[:ability_3].size).to eq(1)
-  #   end
-  # end
-  #
-  # describe '#ability_4' do
-  #   it 'is required' do
-  #     god.ability_4 = nil
-  #     god.valid?
-  #     expect(god.errors[:ability_4].size).to eq(1)
-  #   end
-  #
-  #   it 'is unique' do
-  #     another_god = FactoryBot.build(:god, ability_4: god.ability_1)
-  #     another_god.valid?
-  #     expect(another_god.errors[:ability_4].size).to eq(1)
-  #   end
-  # end
-  #
-  # describe '#ability_5' do
-  #   it 'is required' do
-  #     god.ability_5 = nil
-  #     god.valid?
-  #     expect(god.errors[:ability_5].size).to eq(1)
-  #   end
-  #
-  #   it 'is unique' do
-  #     another_god = FactoryBot.build(:god, ability_5: god.ability_1)
-  #     another_god.valid?
-  #     expect(another_god.errors[:ability_5].size).to eq(1)
-  #   end
-  # end
-  #
-  # describe '#basic_attack' do
-  #   it 'is required' do
-  #     god.basic_attack = nil
-  #     god.valid?
-  #     expect(god.errors[:basic_attack].size).to eq(1)
-  #   end
-  #
+  describe '#ability_1' do
+    it "returns the god's first ability" do
+      first_ability = ability1
+      expect(god.ability_1).to eq(first_ability)
+    end
+  end
+
+  describe '#ability_2' do
+    it "returns the god's second ability" do
+      second_ability = ability2
+      expect(god.ability_2).to eq(second_ability)
+    end
+  end
+
+  describe '#ability_3' do
+    it "returns the god's third ability" do
+      third_ability = ability3
+      expect(god.ability_3).to eq(third_ability)
+    end
+  end
+
+  describe '#ability_4' do
+    it "returns the god's fourth ability" do
+      fourth_ability = ability4
+      expect(god.ability_4).to eq(fourth_ability)
+    end
+  end
+
+  describe '#ability_5' do
+    it "returns the god's passive ability" do
+      passive_ability = ability5
+      expect(god.ability_5).to eq(passive_ability)
+    end
+  end
+
+  describe '#basic_attack' do
+    it "returns the god's basic attack" do
+      basic_ability = basic
+      expect(god.basic_attack).to eq(basic_ability)
+    end
+  end
 
   describe '#attack_speed' do
     it 'is required' do
