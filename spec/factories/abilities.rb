@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :ability do
     god
-    tier { 'ability1' }
+    tier { 'ability_1' }
     description { "Zhong Kui pastes a card on all enemies in front of him, marking them as a demon, Slowing and damaging them each second while they are marked.  If the card is removed, 75% of the remaining damage is done instantly." }
     cooldown { '10s' }
     cost { '60/65/70/75/80' }

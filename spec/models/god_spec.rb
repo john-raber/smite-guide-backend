@@ -84,6 +84,14 @@ describe God do
   #     expect(another_god.errors[:ability_5].size).to eq(1)
   #   end
   # end
+  #
+  # describe '#basic_attack' do
+  #   it 'is required' do
+  #     god.basic_attack = nil
+  #     god.valid?
+  #     expect(god.errors[:basic_attack].size).to eq(1)
+  #   end
+  #
 
   describe '#attack_speed' do
     it 'is required' do
@@ -211,13 +219,11 @@ describe God do
       god.valid?
       expect(god.errors[:name].size).to eq(1)
     end
-  end
 
-  describe '#free_rotation' do
-    it 'is required' do
-      god.free_rotation = nil
-      god.valid?
-      expect(god.errors[:free_rotation].size).to eq(1)
+    it 'is unique' do
+      another_god = FactoryBot.build(:god, name: god.name)
+      another_god.valid?
+      expect(another_god.errors[:name].size).to eq(1)
     end
   end
 
@@ -261,14 +267,6 @@ describe God do
     end
   end
 
-  describe '#pros' do
-    it 'is required' do
-      god.pros = nil
-      god.valid?
-      expect(god.errors[:pros].size).to eq(1)
-    end
-  end
-
   describe '#roles' do
     it 'is required' do
       god.roles = nil
@@ -293,11 +291,11 @@ describe God do
     end
   end
 
-  describe '#type' do
+  describe '#god_type' do
     it 'is required' do
-      god.type = nil
+      god.god_type = nil
       god.valid?
-      expect(god.errors[:type].size).to eq(1)
+      expect(god.errors[:god_type].size).to eq(1)
     end
   end
 

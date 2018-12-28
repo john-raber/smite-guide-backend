@@ -26,7 +26,7 @@ FactoryBot.define do
     roles { 'Mage' }
     speed { 360 }
     title { "the Demon Queller" }
-    type { 'Ranged, Magical' }
+    god_type { 'Ranged, Magical' }
     god_card_url { "https://web2.hirez.com/smite/god-cards/zhong-kui.jpg" }
     god_icon_url { "https://web2.hirez.com/smite/god-icons/zhong-kui.jpg" }
     latest_god { 'n' }

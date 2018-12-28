@@ -3,11 +3,7 @@ class Ability < ApplicationRecord
 
   validates_presence_of [
     :tier,
-    :description,
-    :summary,
-    :menu_items,
-    :rank_items,
-    :url
+    :menu_items
   ]
-  validates_uniqueness_of [:description, :summary]
+  validates :tier, uniqueness: { scope: :god }
 end
