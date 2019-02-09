@@ -21,8 +21,7 @@ RSpec.describe Api::V1::GodsController, type: :request do
       end
 
       get api_v1_gods_path
-      body = JSON.parse(response.body)
-      expect(body.size).to eq(5)
+      expect(json.size).to eq(5)
     end
   end
 end
