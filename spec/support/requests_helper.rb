@@ -6,11 +6,29 @@ module Requests
   end
 
   module ParamHelpers
-    def user_login_params
+    def valid_login_params
       {
         user: {
           email: user.email,
           password: 'password'
+        }
+      }
+    end
+
+    def invalid_email_params
+      {
+        user: {
+          email: 'password',
+          password: 'password'
+        }
+      }
+    end
+
+    def invalid_password_params
+      {
+        user: {
+          email: user.email,
+          password: 'wrong'
         }
       }
     end
