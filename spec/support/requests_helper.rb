@@ -6,6 +6,15 @@ module Requests
   end
 
   module ParamHelpers
+    def valid_user_create_params
+      {
+        user: {
+          email: 'john@example.com',
+          password: 'password'
+        }
+      }
+    end
+
     def valid_login_params
       {
         user: {
