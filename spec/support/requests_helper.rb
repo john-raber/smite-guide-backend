@@ -15,6 +15,33 @@ module Requests
       }
     end
 
+    def user_create_email_missing
+      {
+        user: {
+          email: '',
+          password: 'password'
+        }
+      }
+    end
+
+    def user_create_duplicate_email
+      {
+        user: {
+          email: user.email,
+          password: 'password'
+        }
+      }
+    end
+
+    def user_create_password_missing
+      {
+        user: {
+          email: 'john@example.com',
+          password: ''
+        }
+      }
+    end
+
     def valid_login_params
       {
         user: {
@@ -24,7 +51,7 @@ module Requests
       }
     end
 
-    def invalid_email_params
+    def invalid_login_email_params
       {
         user: {
           email: 'password',
@@ -33,7 +60,7 @@ module Requests
       }
     end
 
-    def invalid_password_params
+    def invalid_login_password_params
       {
         user: {
           email: user.email,
