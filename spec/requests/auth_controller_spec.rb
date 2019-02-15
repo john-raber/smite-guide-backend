@@ -27,14 +27,14 @@ RSpec.describe Api::V1::AuthController, type: :request do
 
     context 'with invalid email' do
       it 'returns a 406 status code' do
-        post api_v1_login_path, params: invalid_email_params
+        post api_v1_login_path, params: invalid_login_email_params
         expect(response).to have_http_status(:not_acceptable)
       end
     end
 
     context 'with invalid password' do
       it 'returns a 406 status code' do
-        post api_v1_login_path, params: invalid_password_params
+        post api_v1_login_path, params: invalid_login_password_params
         expect(response).to have_http_status(:not_acceptable)
       end
     end
