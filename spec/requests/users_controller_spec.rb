@@ -35,14 +35,24 @@ RSpec.describe Api::V1::UsersController, type: :request do
         post api_v1_users_path, params: user_create_email_missing
         expect(json['error']['email']).to include("can't be blank")
       end
+
+      it 'returns a 406 status code' do
+        post api_v1_users_path, params: user_create_email_missing
+        expect(response).to have_http_status(:not_acceptable)
+      end
     end
 
     context 'with a duplicate email' do
       let(:user) { FactoryBot.create(:user) }
 
-      it 'returns a 406 status code' do
+      it 'returns the duplicate email error message' do
         post api_v1_users_path, params: user_create_duplicate_email
         expect(json['error']['email']).to include('has already been taken')
+      end
+
+      it 'returns a 406 status code' do
+        post api_v1_users_path, params: user_create_duplicate_email
+        expect(response).to have_http_status(:not_acceptable)
       end
     end
 
@@ -50,6 +60,11 @@ RSpec.describe Api::V1::UsersController, type: :request do
       it 'returns the missing password error message' do
         post api_v1_users_path, params: user_create_password_missing
         expect(json['error']['password']).to include("can't be blank")
+      end
+
+      it 'returns a 406 status code' do
+        post api_v1_users_path, params: user_create_password_missing
+        expect(response).to have_http_status(:not_acceptable)
       end
     end
   end
